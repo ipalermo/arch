@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<lint>
+    <issue id="InvalidPackage" severity="ignore" />
+
+    <!-- Version changes are beyond our control, so don't warn. The IDE will still mark these. -->
+    <issue id="GradleDependency" severity="ignore" />
+
+    <!-- Timber needs to update its Lint check -->
+    <issue id="ObsoleteLintCustomCheck" severity="ignore" />
+
+    <!-- Translations are added incrementally -->
+    <issue id="MissingTranslation" severity="ignore" />
+
+    <!-- We leave these up to translators -->
+    <issue id="TypographyDashes" severity="ignore" />
+    <issue id="Typos" severity="ignore" />
+
+    <!-- We configure Lint check generated sources to eliminate UnusedResources false positives for
+         resources used in DataBinding layouts. However, the generated files produce other Lint
+         errors that we can ignore.
+    -->
+    <issue id="RestrictedApi">
+        <ignore path="build" />
+    </issue>
+
+    <issue id="UnusedResources">
+        <!-- Some dependencies & gradle plugins generate resources that we don't use -->
+        <ignore path="build" />
+    </issue>
+</lint>
